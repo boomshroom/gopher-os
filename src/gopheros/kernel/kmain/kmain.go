@@ -1,6 +1,7 @@
 package kmain
 
 import (
+	"gopheros/device/acpi"
 	"gopheros/kernel"
 	"gopheros/kernel/goruntime"
 	"gopheros/kernel/hal"
@@ -48,4 +49,6 @@ func Kmain(multibootInfoPtr, kernelStart, kernelEnd, kernelPageOffset uintptr) {
 
 	// Detect and initialize hardware
 	hal.DetectHardware()
+
+	acpi.Init()
 }
